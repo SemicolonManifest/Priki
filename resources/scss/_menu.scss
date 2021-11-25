@@ -1,0 +1,33 @@
+#menu{
+  height: 40px;
+  background-color: #07466c;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin-bottom: 5px;
+  color: white;
+  .fas{
+    color: white;
+  }
+
+.dropdown .btn{
+  color: white;
+}
+
+.version{
+  font-size: smaller;
+ padding-right: 20px;
+}
+
+  .loggedAs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+
+}
