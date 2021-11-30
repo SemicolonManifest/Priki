@@ -31,7 +31,8 @@
 </head>
 <body class="antialiased">
 <!-- HEADER -->
-<x-header :pageTitle="$pageTitle">
+@component('components.header',['pageTitle'=>$pageTitle])
+@endcomponent
 
 <!--  /HEADER -->
 

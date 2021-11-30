@@ -7,8 +7,9 @@ use Illuminate\View\View;
 
 class HomeController extends Controller
 {
-    public function index($filterValue):View
+    public function index($filterValue=5):View
     {
-        return view("home")->with(['filterValue'=>$filterValue,'pageTitle'=>"Home"]);
+        return view("home")->with(['filterValue'=>$filterValue,'pageTitle'=>"Home"])
+                                ->with('pageTitle','Home');
     }
 }

@@ -15,9 +15,7 @@ use App\Http\Controllers\DomainPracticesController;
 |
 */
 
-Route::get('/', function () {
-    return view('home')->with('nbDays',5);
-});
+Route::get('/', [HomeController::class,'index']);
 
 
 Route::get('/home/{filterValue}', [HomeController::class,'index']);
