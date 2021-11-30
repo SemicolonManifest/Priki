@@ -2,12 +2,24 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+use \Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Practice extends Model
 {
     use HasFactory;
+
+    public static function allPublished(): Collection|array
+    {
+        return Practice::whereHas(
+            'publicationState',
+            fn($publicationState) => $publicationState->where('slug',"=","PUB")
+        )->get();
+    }
+
 
     public function domain()
     {
@@ -18,4 +30,15 @@ class Practice extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    final public function publicationState(): BelongsTo
+    {
+        return $this->belongsTo(PublicationState::class);
+    }
+    final public static function lastUpdates(int $days = 1): Collection|array
+    {
+        $dateSubDay = Carbon::now()->subDays($days);
+        return Practice::where('updated_at', '>=', $dateSubDay)->get();
+    }
+
 }

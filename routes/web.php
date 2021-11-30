@@ -18,7 +18,7 @@ use App\Http\Controllers\DomainPracticesController;
 Route::get('/', [HomeController::class,'index']);
 
 
-Route::get('/home/{filterValue}', [HomeController::class,'index']);
+Route::get('/home/', [HomeController::class,'index']);
 
 Route::get('/domain/{domainSlug}/practices/', [DomainPracticesController::class,'index']);
 
