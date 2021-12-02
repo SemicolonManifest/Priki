@@ -1,6 +1,6 @@
 <div >
     <div class="w-100 is-flex is-align-items-center is-justify-content-right pb-3">
-        <span>Ancien de:&nbsp;</span>
+        <span>Nouveau de &nbsp;</span>
         <input wire:model="days"
                wire:change="onLastUpdates"
                class="input is-inline"
@@ -10,6 +10,9 @@
         >&nbsp;jours
     </div>
     <div class="columns is-multiline is-flex is-justify-content-center">
+        @if(!isset($practices[0]))
+            <span>Aucune pratique à afficher ici</span>
+        @endif
         @foreach ($practices as $practice)
             <div class="column is-half is-flex">
                 <article class="message is-info">

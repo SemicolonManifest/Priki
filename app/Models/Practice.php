@@ -7,17 +7,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
 use \Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Builder;
 
 class Practice extends Model
 {
     use HasFactory;
 
-    public static function allPublished(): Collection|array
+    public static function allPublished(): Builder
     {
         return Practice::whereHas(
             'publicationState',
             fn($publicationState) => $publicationState->where('slug',"=","PUB")
-        )->get();
+        );
     }
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Practice;
+use Carbon\Carbon;
 use Livewire\Component;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -28,8 +29,6 @@ class HomePractice extends Component
 
     private function getLastUpdates(): void
     {
-        $allPublished = Practice::allPublished();
-        $lastUpdates = Practice::lastUpdates(intval($this->days));
-        $this->practices = $allPublished->intersect($lastUpdates);
+        $this->practices = Practice::allPublished()->where('updated_at','>=',Carbon::now()->subDays($this->days))->get();
     }
 }
