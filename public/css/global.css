@@ -10333,17 +10333,14 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 #menu {
-  height: 40px;
   background-color: #07466c;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
   padding-right: 5px;
   padding-left: 5px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   margin-bottom: 5px;
   color: white;
+  padding-top: 0.3rem;
 }
 #menu .fas {
   color: white;
@@ -10362,6 +10359,24 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 #menu h3 {
   font-size: 1.75rem !important;
+}
+#menu section {
+  height: 40px;
+}
+#menu .dropdown {
+  border-radius: 0.3rem;
+}
+#menu .dropdown:hover {
+  background-color: #095789;
+}
+#menu .dropdown .dropdown-menu {
+  background-color: #07466c;
+}
+#menu .dropdown .dropdown-menu a {
+  color: white;
+}
+#menu .dropdown .dropdown-menu a:hover {
+  background-color: #095789;
 }
 
 body {

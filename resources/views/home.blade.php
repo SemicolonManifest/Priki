@@ -1,4 +1,4 @@
 @extends('layout',['pageTitle' => $pageTitle])
 @section('content')
-    <livewire:home-practice/>
+    <livewire:show-practices :domainSlug="'all'"/>
 @endsection

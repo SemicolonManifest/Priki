@@ -7,8 +7,9 @@ use Carbon\Carbon;
 use Livewire\Component;
 use Illuminate\Database\Eloquent\Collection;
 
-class HomePractice extends Component
+class ShowPractices extends Component
 {
+    public string $domainSlug;
     public string|int $days;
     public Collection $practices;
 
@@ -20,7 +21,7 @@ class HomePractice extends Component
 
     public function render()
     {
-        return view('livewire.home-practice');
+        return view('livewire.show-practices');
     }
     public function onLastUpdates()
     {
@@ -29,6 +30,12 @@ class HomePractice extends Component
 
     private function getLastUpdates(): void
     {
-        $this->practices = Practice::allPublished()->where('updated_at','>=',Carbon::now()->subDays($this->days))->get();
+        $practices = Practice::allPublished()->where('updated_at','>=',Carbon::now()->subDays($this->days));
+
+        if("all" != $this->domainSlug){
+            $practices->whereHas('domain',fn($domain)=>$domain->where('slug',$this->domainSlug));
+        }
+
+        $this->practices = $practices->get();
     }
 }
