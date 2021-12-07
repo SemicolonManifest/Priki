@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\DomainPracticesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,25 +13,12 @@ use App\Http\Controllers\DomainPracticesController;
 |
 */
 
-Route::get('/', [HomeController::class,'index']);
-
-
-Route::get('/home/', [HomeController::class,'index']);
-
-Route::get('/domain/{domainSlug}/practices/', [DomainPracticesController::class,'index']);
-
-
-
-Route::get('/domain', function () {
-    return view('domain');
+Route::get('/', function () {
+    return view('welcome');
 });
 
-Route::get('/role', function () {
-    return view('role');
-});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::post('/domain/add', function (){
-
-});
-
-Route::redirect('/teapot', '/teapot', 418);
+require __DIR__.'/auth.php';
