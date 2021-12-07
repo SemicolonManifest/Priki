@@ -7,6 +7,7 @@
                type="number"
                size="3"
                name="days"
+               min="0"
         >&nbsp;jours
     </div>
     <div class="columns is-multiline is-flex is-justify-content-center">
