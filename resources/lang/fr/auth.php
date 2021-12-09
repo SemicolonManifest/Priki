@@ -13,11 +13,12 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'Password' => 'Password',
-    'Email' => 'E-mail',
-    'Remember me' => 'Remember me',
-    'forgot password' => 'Forgot your password?',
+    'failed' => 'Ces informations de connexion ne correspondent pas.',
+    'password' => 'Le mot de passe fourni est incorrecte.',
+    'throttle' => 'Trop de tentatives infructueuses. Merci de réessayer dans :seconds secondes.',
+    'Password' => 'Mot de passe',
+    'Email' => 'Adresse e-mail',
+    'Remember me' => 'Se souvenir de moi',
+    'forgot password' => 'Mot de passe oublié?',
+
 ];
