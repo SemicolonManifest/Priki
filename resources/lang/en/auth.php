@@ -20,4 +20,7 @@ return [
     'Email' => 'E-mail',
     'Remember me' => 'Remember me',
     'forgot password' => 'Forgot your password?',
+    'Log out' => 'Log Out',
+    'Log in' => 'Log in',
+    'Register' => 'Register',
 ];

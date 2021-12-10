@@ -20,5 +20,7 @@ return [
     'Email' => 'Adresse e-mail',
     'Remember me' => 'Se souvenir de moi',
     'forgot password' => 'Mot de passe oublié?',
-
+    'Log out' => 'Se déconnecter',
+    'Log in' => 'Se connecter',
+    'Register' => "S'inscrire",
 ];
