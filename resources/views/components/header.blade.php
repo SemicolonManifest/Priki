@@ -46,7 +46,7 @@
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 
                         <div
-                            class="navbar-item navbar-link has-dropdown is-hoverable bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">
+                            class="navbar-item navbar-link has-dropdown is-hoverable bg-gray-900 text-white pr-6 px-3 py-2  rounded-md text-sm font-medium hover:bg-gray-700">
                             <a class=" text-white">
                                 Domaines
                             </a>
@@ -56,7 +56,7 @@
                                 @foreach(\App\Models\Domain::all() as $domain)
                                     <a class="navbar-item hover:bg-gray-800 text-white"
                                        href="/domain/{{$domain->slug}}/practices">
-                                        {{$domain->name}}
+                                        {{$domain->name}} ({{$domain->practices("PUB")->count()}})
                                     </a>
                                 @endforeach
                             </div>
