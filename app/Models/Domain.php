@@ -16,7 +16,14 @@ class Domain extends Model
         'slug'
     ];
 
-    public function practices(){
-        return $this->hasMany(Practice::class);
+    public function practices($slug = null)
+    {
+        if ($slug == null)
+        {
+            return $this->hasMany(Practice::class);
+        }else{
+            return $this->hasMany(Practice::class)->whereHas('publicationState',
+                fn($publicationState) => $publicationState->where('slug',"=",$slug));
+        }
     }
 }

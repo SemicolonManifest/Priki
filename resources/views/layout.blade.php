@@ -19,12 +19,12 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    
+
     @livewireStyles
 </head>
 <body class="antialiased">
 <!-- HEADER -->
-@component('components.header',['pageTitle'=>$pageTitle])
+@component('components.header')
 @endcomponent
 
 <!--  /HEADER -->
