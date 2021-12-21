@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PracticesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DomainPracticesController;
@@ -21,6 +22,8 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/home/', [HomeController::class, 'index']);
 
 Route::get('/domain/{domainSlug}/practices/', [DomainPracticesController::class, 'index']);
+
+Route::get('/practices/{id}', [PracticesController::class, 'index']);
 
 
 Route::get('/domain', function () {
