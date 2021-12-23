@@ -9,27 +9,11 @@
                 <article>
                     <!-- Post content-->
                     <section class="mb-5">
-                        <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the
-                            free human mind. Because it transforms who we are, how we live, and it gives us an
-                            understanding of our place in the universe.</p>
-                        <p class="fs-5 mb-4">The universe is large and old, and the ingredients for life as we know it
-                            are everywhere, so there's no reason to think that Earth would be unique in that regard.
-                            Whether of not the life became intelligent is a different question, and we'll see if we find
-                            that.</p>
-                        <p class="fs-5 mb-4">If you get asteroids about a kilometer in size, those are large enough and
-                            carry enough energy into our system to disrupt transportation, communication, the food
-                            chains, and that can be a really bad day on Earth.</p>
-                        <h2 class="fw-bolder mb-4 mt-5">I have odd cosmic thoughts every day</h2>
-                        <p class="fs-5 mb-4">For me, the most fascinating interface is Twitter. I have odd cosmic
-                            thoughts every day and I realized I could hold them to myself or share them with people who
-                            might be interested.</p>
-                        <p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened
-                            there because we're twirling knobs here on Earth without knowing the consequences of it.
-                            Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
+                        <p class="fs-5 mb-4">{{$practice->description}}</p>
                     </section>
                 </article>
                 <!-- Comments section-->
-                <section class="mb-5">
+                <section class="mb-5 hidden">
                     <div class="card bg-light">
                         <div class="card-body">
                             <!-- Comment form-->
@@ -92,32 +76,17 @@
                     <div class="card-header">Infos</div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li><a href="#!">Autheur</a></li>
-                                    <li><a href="#!">Posté le</a></li>
-                                    <li><a href="#!">Édité le</a></li>
-                                    <li><a href="#!">Statut</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li><a href="#!">JavaScript</a></li>
-                                    <li><a href="#!">CSS</a></li>
-                                    <li><a href="#!">Tutorials</a></li>
-                                </ul>
-                            </div>
+                            <table class="m-1 ml-3">
+                                <tr><td class="col-sm-6">{{__('practice.author')}}</td><td class="col-sm-6">{{$practice->user->fullname}}</td></tr>
+                                <tr><td class="col-sm-6">{{__('practice.domain')}}</td><td class="col-sm-6">{{$practice->domain->name}}</td></tr>
+                                <tr><td class="col-sm-6">{{__('practice.created_at')}}</td><td class="col-sm-6">{{\Carbon\Carbon::parse($practice->created_at)->isoFormat("D MMMM YYYY") }}</td></tr>
+                                <tr><td class="col-sm-6">{{__('practice.updated_at')}}</td><td class="col-sm-6">{{\Carbon\Carbon::parse($practice->updated_at)->isoFormat("D MMMM YYYY") }}</td></tr>
+                                <tr><td class="col-sm-6">{{__('practice.status')}}</td><td class="col-sm-6">{{$practice->publicationState->name}}</td></tr>
+                            </table>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Side widget-->
-                <div class="card mb-4">
-                    <div class="card-header">Side Widget</div>
-                    <div class="card-body">You can put anything you want inside of these side widgets. They are easy to
-                        use, and feature the Bootstrap 5 card component!
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
