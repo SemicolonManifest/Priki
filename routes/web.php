@@ -19,11 +19,11 @@ use App\Http\Controllers\DomainPracticesController;
 Route::get('/', [HomeController::class, 'index']);
 
 
-Route::get('/home/', [HomeController::class, 'index']);
+Route::get('/home/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/domain/{domainSlug}/practices/', [DomainPracticesController::class, 'index']);
 
-Route::get('/practices/{id}', [PracticesController::class, 'index']);
+Route::get('/practices/{id}', [PracticesController::class, 'show']);
 
 
 Route::get('/domain', function () {
