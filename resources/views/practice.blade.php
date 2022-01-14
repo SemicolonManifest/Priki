@@ -21,33 +21,63 @@
                             <form class="mb-4"><textarea class="form-control" rows="3"
                                                          placeholder="Join the discussion and leave a comment!"></textarea>
                             </form>
-                            @foreach($practice->opinions as $opinion)
+                        @foreach($practice->opinions as $opinion)
                             <!-- Comment with nested comments-->
-                            <div class="d-flex mb-4">
-                                <!-- Parent comment-->
-                                <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/>
-                                </div>
-                                <div class="ms-3">
-                                    <div class="fw-bold">{{$opinion->user->fullname}}</div>
-                                    {{$opinion->description}}
-
-
-                                    <div class="fw-light mt-2">{{\Carbon\Carbon::parse($opinion->created_at)->isoFormat("D MMMM YYYY") }}</div>
-                                    <!-- Child comment 1-->
-                                    <div class="d-flex mt-4 is-hidden">
-                                        <div class="flex-shrink-0"><img class="rounded-circle"
-                                                                        src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
-                                                                        alt="..."/></div>
-                                        <div class="ms-3">
-                                            <div class="fw-bold">Commenter Name</div>
-                                            And under those conditions, you cannot establish a capital-market evaluation
-                                            of that enterprise. You can't get investors.
-                                        </div>
+                                <div class="d-flex mb-4">
+                                    <!-- Parent comment-->
+                                    <div class="flex-shrink-0"><img class="rounded-circle"
+                                                                    src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
+                                                                    alt="..."/>
                                     </div>
+                                    <div class="ms-3 w-100">
+                                        <div class="fw-bold">{{$opinion->user->fullname}}</div>
+                                        {{$opinion->id}} {{$opinion->user->id}}  {{$opinion->description}}
 
 
+                                        <div class="mt-2 is-flex is-flex-direction-row justify-content-between">
+                                            <div
+                                                class="fw-light">{{\Carbon\Carbon::parse($opinion->created_at)->isoFormat("D MMMM YYYY") }}</div>
+                                            <div class="fw-light"></div>
+                                            <div>
+
+
+                                                    <div>
+                                                      {{$opinion->comments->count()}} {{__('practice.comments')}}
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- Child comment 1-->
+                                        @foreach($opinion->comments as $commentUser)
+                                            {{dd($opinion->sumPoints)}}
+                                            <div class="is-flex justify-content-between w-100">
+                                                <div class="d-flex mt-4">
+                                                    <div class="flex-shrink-0"><img class="rounded-circle"
+                                                                                    src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
+                                                                                    alt="..."/></div>
+
+                                                    <div class="ms-3">
+                                                        <div class="fw-bold">{{$commentUser->fullname}}</div>
+                                                        {{$commentUser->comment->comment}}
+                                                    </div>
+                                                </div>
+                                                <div class="is-flex is-align-items-center">
+                                                    @if($commentUser->comment->points == 1)
+                                                        <i class="far fa-thumbs-up fa-2x"></i>
+                                                    @endif
+                                                    @if($commentUser->comment->points == 0)
+                                                        <i class="far fa-meh fa-2x"></i>
+                                                    @endif
+                                                    @if($commentUser->comment->points == -1)
+                                                        <i class="far fa-thumbs-down fa-2x"></i>
+                                                    @endif
+                                                </div>
+                                            </div>
+
+                                        @endforeach
+
+                                    </div>
                                 </div>
-                            </div>
                             @endforeach
                         </div>
                     </div>
