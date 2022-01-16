@@ -21,8 +21,13 @@ class Opinion extends Model
             ->as('comment');
     }
 
-    public function sumPoints()
+    public function sumUpVotes():int
     {
-        dd($this->comments()->withPivot("points", 1)->count('points'));
+        return $this->comments()->wherePivot("points",1)->count('points');
+    }
+
+    public function sumDownVotes():int
+    {
+        return $this->comments()->wherePivot("points",1)->count('points');
     }
 }

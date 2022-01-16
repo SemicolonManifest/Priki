@@ -13,6 +13,7 @@
                         <p class="fs-5 mb-4">{{$practice->description}}</p>
                     </section>
                 </article>
+
                 <!-- Comments section-->
                 <section class="mb-5">
                     <div class="card bg-light">
@@ -30,7 +31,7 @@
                                                                     alt="..."/>
                                     </div>
                                     <div class="ms-3 w-100">
-                                        <div class="fw-bold">{{$opinion->user->fullname}}</div>
+                                        <a href="/user/{{$opinion->user->id}}/profile"><div class="fw-bold">{{$opinion->user->fullname}}</div></a>
                                         {{$opinion->id}} {{$opinion->user->id}}  {{$opinion->description}}
 
 
@@ -38,18 +39,24 @@
                                             <div
                                                 class="fw-light">{{\Carbon\Carbon::parse($opinion->created_at)->isoFormat("D MMMM YYYY") }}</div>
                                             <div class="fw-light"></div>
-                                            <div>
-
-
-                                                    <div>
+                                            <div class="mt-2 is-flex is-flex-direction-row">
+                                                    <div class="mr-2">
                                                       {{$opinion->comments->count()}} {{__('practice.comments')}}
+                                                    </div>
+                                                    <div class="text-success mr-2">
+                                                        <i class="fas fa-arrow-up"></i> {{$opinion->sumUpvotes()}}
+                                                    </div>
+                                                    <div class="text-danger">
+                                                        <i class="fas fa-arrow-down"></i> {{$opinion->sumUpvotes()}}
+                                                    </div>
+                                                    <div>
+
                                                     </div>
 
                                             </div>
                                         </div>
                                         <!-- Child comment 1-->
                                         @foreach($opinion->comments as $commentUser)
-                                            {{dd($opinion->sumPoints)}}
                                             <div class="is-flex justify-content-between w-100">
                                                 <div class="d-flex mt-4">
                                                     <div class="flex-shrink-0"><img class="rounded-circle"
@@ -57,7 +64,7 @@
                                                                                     alt="..."/></div>
 
                                                     <div class="ms-3">
-                                                        <div class="fw-bold">{{$commentUser->fullname}}</div>
+                                                        <a href="/user/{{$commentUser->id}}/profile"><div class="fw-bold">{{$commentUser->fullname}}</div></a>
                                                         {{$commentUser->comment->comment}}
                                                     </div>
                                                 </div>
