@@ -18,7 +18,7 @@ class user_opinionSeeder extends Seeder
             [
                 ['user_id'=>16,'opinion_id'=>17,'comment'=>'ah!','points'=>1],
                 ['user_id'=>15,'opinion_id'=>17,'comment'=>'bon','points'=>0],
-                ['user_id'=>17,'opinion_id'=>17,'comment'=>'super..','points'=>-1]§
+                ['user_id'=>17,'opinion_id'=>17,'comment'=>'super..','points'=>-1],
             ]
         );
     }
