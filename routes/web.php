@@ -4,6 +4,7 @@ use App\Http\Controllers\PracticesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DomainPracticesController;
+use App\Http\Controllers\ReferencesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ Route::get('/domain/{domainSlug}/practices/', [DomainPracticesController::class,
 
 Route::get('/practices/{id}', [PracticesController::class, 'show']);
 
+Route::get('/references/', [ReferencesController::class, 'show']);
 
 Route::get('/domain', function () {
     return view('domain');
@@ -41,6 +43,10 @@ Route::post('/domain/add', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::resources([
+    'references' => ReferencesController::class,
+]);
 
 require __DIR__.'/auth.php';
 
