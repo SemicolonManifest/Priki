@@ -8,5 +8,6 @@ return [
     'updated_at' => 'Mis à jour le',
     'status' => 'Statut',
     'domain' => 'Domaine',
+    'comments' => 'Commentaires',
 
 ];

@@ -13,4 +13,21 @@ class Opinion extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function comments()
+    {
+        return $this->belongsToMany(User::class,"user_opinion")
+            ->withPivot("comment","points")
+            ->as('comment');
+    }
+
+    public function sumUpVotes():int
+    {
+        return $this->comments()->wherePivot("points",1)->count('points');
+    }
+
+    public function sumDownVotes():int
+    {
+        return $this->comments()->wherePivot("points",1)->count('points');
+    }
 }
