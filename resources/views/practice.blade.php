@@ -18,10 +18,13 @@
                 <section class="mb-5">
                     <div class="card bg-light">
                         <div class="card-body">
+                            @if(\Illuminate\Support\Facades\Auth::check())
                             <!-- Comment form-->
-                            <form class="mb-4"><textarea class="form-control" rows="3"
+                            <form class="mb-4">
+                                <textarea class="form-control" rows="3" name="comment"
                                                          placeholder="Join the discussion and leave a comment!"></textarea>
                             </form>
+                            @endif
                         @foreach($practice->opinions as $opinion)
                             <!-- Comment with nested comments-->
                                 <div class="d-flex mb-4">
