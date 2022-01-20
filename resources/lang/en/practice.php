@@ -9,5 +9,6 @@ return [
     'status' => 'Status',
     'domain'=> 'Domain',
     'comments' => 'Comments',
+    'references' => 'References',
 
 ];

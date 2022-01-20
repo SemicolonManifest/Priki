@@ -6,10 +6,8 @@
         </tr>
         @foreach (App\Models\Reference::all() as $reference )
         <tr>
-            <td class="w-50">{{$reference->description}}</td><td class="w-50">{{$reference->url}}</td>
+            <td>{{$reference->description}}</td><td><a href="{{$reference->url}}">{{$reference->url}}</a></td>
         </tr>
         @endforeach
-
-
     </table>
 @endsection
