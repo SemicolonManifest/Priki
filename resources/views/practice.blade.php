@@ -57,10 +57,10 @@
                                                 {{ __('practice.references') }}
                                             </div>
                                             <div class="text-success mr-2">
-                                                <i class="fas fa-arrow-up"></i> {{ $opinion->sumUpvotes() }}
+                                                <i class="fas fa-arrow-up"></i> {{ $opinion->sumUpVotes() }}
                                             </div>
                                             <div class="text-danger">
-                                                <i class="fas fa-arrow-down"></i> {{ $opinion->sumUpvotes() }}
+                                                <i class="fas fa-arrow-down"></i> {{ $opinion->sumDownVotes() }}
                                             </div>
                                             <div>
 

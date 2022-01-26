@@ -25,7 +25,14 @@ class ReferencesController extends Controller
      */
     public function create()
     {
-        //
+        $reference = new Reference();
+        $reference->description = $_POST['name'];
+        $reference->url = $_POST['url'];
+        $reference->save();
+
+        echo "e";
+
+        return back();
     }
 
     /**

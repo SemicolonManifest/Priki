@@ -20,13 +20,15 @@ use App\Http\Controllers\ReferencesController;
 Route::get('/', [HomeController::class, 'index']);
 
 
-Route::get('/home/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/domain/{domainSlug}/practices/', [DomainPracticesController::class, 'index']);
 
 Route::get('/practices/{id}', [PracticesController::class, 'show']);
 
-Route::get('/references/', [ReferencesController::class, 'show']);
+Route::get('/references', [ReferencesController::class, 'show']);
+
+Route::post('/references/create', [ReferencesController::class, 'create']);
 
 Route::get('/domain', function () {
     return view('domain');
