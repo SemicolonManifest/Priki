@@ -17,9 +17,9 @@ class PracticesController extends Controller
             return redirect()->route('home');
         }else{
             $error = false;
-            if(isset($_SESSION['error'])) {
-                $error = $_SESSION['error'];
-                unset($_SESSION['error']);
+            if(session()->exists('error')) {
+                $error = session('error');
+                session()->forget('error');
             }
             return view("practice")->with(['practice' => $practice,'error'=>$error]);
         }
@@ -37,10 +37,10 @@ class PracticesController extends Controller
                 $practice->title = $_POST['newtitle'];
                 $practice->save();
             }else{
-                $_SESSION['error'] = "Ce titre existe déjà !";
+                session(['error'=> "Ce titre existe déjà !"]);
             }
         }else{
-            $_SESSION['error'] = "Le titre doit être compris entre 3 et 40 caractères !";
+            session(['error'=> "Le titre doit être compris entre 3 et 40 caractères !"]);
         }
 
         return back();
