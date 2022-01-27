@@ -94,7 +94,13 @@
 
                 <!-- Profile dropdown -->
                 <div class="ml-3 relative">
-                    <div>
+                    <div class="is-flex is-flex-direction-row">
+                        <div class="navbar-item bg-gray-800 flex is-align-items-center text-sm rounded-full pl-3 bg-gray-900 mr-5"
+                                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                <div class="mr-3 text-white">Théo Gautier - Exem début</div>
+
+
+                            </div>
                         @if(\Illuminate\Support\Facades\Auth::check())
 
                             <div class="navbar-item has-dropdown is-hoverable bg-gray-800 flex is-align-items-center text-sm rounded-full pl-3 hover:bg-gray-800 bg-gray-900"

@@ -44,6 +44,7 @@ class PracticeSeeder extends Seeder
             ]
             as $practice) {
             Practice::create([
+                'title' => (substr($practice,0,15)),
                 'description' => $practice,
                 'domain_id' => Domain::all()->random()->id,
                 'publication_state_id' => PublicationState::all()->random()->id,
