@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Practice;
+use App\Policies\practiceEditionPolicy;
+use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use App\Policies;
 
 
 class PracticesController extends Controller
@@ -28,7 +31,9 @@ class PracticesController extends Controller
 
     public function editTitle($id)
     {
+
         $practice = Practice::find($id);
+        // TODO ajouter la vérification si modérateur ou proprio
         $oldTitle = $practice->title;
         if(strlen($_POST['newtitle']) >= 3 && strlen($_POST['newtitle']) <= 40)
         {

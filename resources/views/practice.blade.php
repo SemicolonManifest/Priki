@@ -7,6 +7,7 @@
   <div class="row">
    <div class="col-lg-8">
      <!-- Post content-->
+
      <article>
          @if ($error != false)
          <div class="alert alert-danger" role="alert">
@@ -17,10 +18,13 @@
         <div class="mb-5">
         <div class="is-flex is-flex-direction-row">
              <h1 class="title">{{ $practice->title }}</h1>
+             <!-- TODO: Faire fonctionner les Policies -->
+             @can('edit',[\Illuminate\Support\Facades\Auth::user(),$practice])}}
              <div class="ml-4">
                      <div id="btnEditTitle">
                                   <i class="fas fa-edit fa-2x"></i>
                      </div>
+            @endcan
 
 
              </div>
