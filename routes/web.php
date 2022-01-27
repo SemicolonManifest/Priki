@@ -4,6 +4,7 @@ use App\Http\Controllers\PracticesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DomainPracticesController;
+use App\Http\Controllers\ReferencesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +20,15 @@ use App\Http\Controllers\DomainPracticesController;
 Route::get('/', [HomeController::class, 'index']);
 
 
-Route::get('/home/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/domain/{domainSlug}/practices/', [DomainPracticesController::class, 'index']);
 
 Route::get('/practices/{id}', [PracticesController::class, 'show']);
 
+Route::get('/references', [ReferencesController::class, 'show']);
+
+Route::post('/references/create', [ReferencesController::class, 'create']);
 
 Route::get('/domain', function () {
     return view('domain');
@@ -41,6 +45,10 @@ Route::post('/domain/add', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::resources([
+    'references' => ReferencesController::class,
+]);
 
 require __DIR__.'/auth.php';
 

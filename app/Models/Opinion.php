@@ -21,6 +21,10 @@ class Opinion extends Model
             ->as('comment');
     }
 
+    public function references(){
+        return $this->belongsToMany(Reference::class);
+    }
+
     public function sumUpVotes():int
     {
         return $this->comments()->wherePivot("points",1)->count('points');
@@ -28,6 +32,6 @@ class Opinion extends Model
 
     public function sumDownVotes():int
     {
-        return $this->comments()->wherePivot("points",1)->count('points');
+        return $this->comments()->wherePivot("points",-1)->count('points');
     }
 }

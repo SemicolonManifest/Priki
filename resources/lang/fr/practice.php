@@ -10,4 +10,6 @@ return [
     'domain' => 'Domaine',
     'comments' => 'Commentaires',
 
+    'references' => 'Références',
+
 ];

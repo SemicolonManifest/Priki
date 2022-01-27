@@ -44,8 +44,8 @@
                          alt="Workflow">
                 </a>
                 </div>
-                <div class="hidden sm:block sm:ml-6">
-                    <div class="flex space-x-4">
+                <div class="hidden sm:block sm:ml-6 is-flex is-raw">
+                    <div class="flex space-x-4 mr-2">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 
                         <div
@@ -64,6 +64,22 @@
                                 @endforeach
                             </div>
                         </div>
+
+
+                        <!-- <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
+
+                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+
+                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>-->
+                    </div>
+                    <div class="flex space-x-4">
+                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+
+                        <a href="/references/" class="navbar-item is-hoverable bg-gray-900 text-white px-3 py-2  rounded-md text-sm font-medium hover:bg-gray-700">
+                            <div class=" text-white">
+                                References
+                            </div>
+                        </a>
 
 
                         <!-- <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
