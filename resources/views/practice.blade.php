@@ -9,6 +9,9 @@
             <!-- Post content-->
             <article>
                 <!-- Post content-->
+                <div class="mb-5">
+                <h1 class="title">{{$practice->title}}</h1>
+                </div>
                 <section class="mb-5">
                     <p class="fs-5 mb-4">{{ $practice->description }}</p>
                 </section>

@@ -22,6 +22,7 @@
                             <div>
                                 {{$practice->domain->name}}
                             </div>
+                            <h1>{{$practice->title}}</h1>
                             <div>
                                 {{\Carbon\Carbon::parse($practice->updated_at)->isoFormat("D MMMM YYYY") }}
                             </div>
