@@ -26,6 +26,8 @@ Route::get('/domain/{domainSlug}/practices/', [DomainPracticesController::class,
 
 Route::get('/practices/{id}', [PracticesController::class, 'show']);
 
+Route::post('/practices/{id}/editTitle', [PracticesController::class, 'editTitle']);
+
 Route::get('/references', [ReferencesController::class, 'show']);
 
 Route::post('/references/create', [ReferencesController::class, 'create']);

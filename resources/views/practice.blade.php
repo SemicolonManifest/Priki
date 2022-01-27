@@ -8,6 +8,11 @@
    <div class="col-lg-8">
      <!-- Post content-->
      <article>
+         @if ($error != false)
+         <div class="alert alert-danger" role="alert">
+            {{$error}}
+          </div>
+         @endif
         <!-- Post content-->
         <div class="mb-5">
         <div class="is-flex is-flex-direction-row">
@@ -20,14 +25,14 @@
 
              </div>
         </div>
-        <form hidden id='editTitleFormGroup' method="POST" class="border border-secondary rounded p-4 mb-4">
+        <form hidden id='editTitleFormGroup' method="POST" action="/practices/4/editTitle" class="border border-secondary rounded p-4 mb-4">
             @csrf
             <input hidden name="id" value="{{ $practice->id }}">
             <div class="form-group row">
                      <label for="newTitle" class="col-sm-2 col-form-label">New title :</label>
                      <div class="col-sm-10">
                                   <input name="newtitle" type="text" class="form-control" id="newTitle"
-                                                       placeholder="New Title" value="{{ $practice->title }}" pattern=".{3,15}" required title="3 characters minimum and 15 maximum">
+                                                       placeholder="New Title" value="{{ $practice->title }}" pattern=".{3,40}" required title="3 characters minimum and 40 maximum">
                      </div>
              </div>
              <div class="form-group row">
